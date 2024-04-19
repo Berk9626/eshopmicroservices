@@ -1,4 +1,4 @@
-﻿namespace Catalog.API.Model
+﻿namespace Catalog.API.Models
 {
     //postgresql ve martin library kullanacağız
     public class Product
