@@ -1,6 +1,4 @@
-﻿using BuildingBlocks.CQRS;
-using Catalog.API.Models;
-using MediatR;
+﻿
 
 
 namespace Catalog.API.Products.CreateProduct
@@ -15,7 +13,7 @@ namespace Catalog.API.Products.CreateProduct
 
     public record CreateProductResult(Guid Id); 
 
-    internal class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
+    internal class CreateProductCommandHandler(IDocumentSession session) : ICommandHandler<CreateProductCommand, CreateProductResult>
     //bizim command ve result clasları üretilecek
     //kelimesi bir türün veya üyenin yalnızca tanımlandığı derleme biriminde erişilebilir olduğunu belirtir. Bu, kodunuzun daha iyi modülerlik ve izolasyon sağlamasına yardımcı olabilir.
     {
@@ -37,9 +35,11 @@ namespace Catalog.API.Products.CreateProduct
 
             };
             //save to db
+            session.Store(product);
+            await session.SaveChangesAsync(cancellationToken); 
             
 
-            return new CreateProductResult(Guid.NewGuid());
+            return new CreateProductResult(product.Id);
 
 
 

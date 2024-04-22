@@ -1,0 +1,13 @@
+PostgreSql ile kullaným saðlamak amacýyla Maerten kullanacaðýz. Bu bir ORM. Güçlü ve PostgreSql Json Columnlarýný data olarak halleder
+CatalogService use Marten for postgresql Interaction as a Document DB.
+Martin's session is an interaction pattern for working with the documents stored in PostgreSQL database.
+
+IQuerySession: readonly scenarios, IDocumentSession: for the read and write scenarios.
+QuerySession: These sessions is best used for querying documents without any need for the tracking or saving changes.
+IdentityMapDocumentSession: Martin's I document session implement the identity map pattern that seeks to cache documents loaded
+by ID.This behavior can be very valuable, for example, in handling the web requests or service bus messages.
+When many different objects or functions may need to access the same logical document.
+
+LightWeightDocumentSession: It is suitable for small transactions with a mix of the read and write operations.
+For operations that involve updates, inserts or deletes, we use a lightweight sessions.
+It is still transactional but doesn't track the changes to the loaded document.
