@@ -8,6 +8,10 @@ builder.Services.AddMediatR(config =>
     //... mediator class library
 
 });
+builder.Services.AddMarten(opt =>
+{
+    opt.Connection(builder.Configuration.GetConnectionString("Database")!);
+}).UseLightweightSessions();
 
 var app = builder.Build();
 
