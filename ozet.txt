@@ -11,3 +11,9 @@ When many different objects or functions may need to access the same logical doc
 LightWeightDocumentSession: It is suitable for small transactions with a mix of the read and write operations.
 For operations that involve updates, inserts or deletes, we use a lightweight sessions.
 It is still transactional but doesn't track the changes to the loaded document.
+
+dockera postgres eklemek için catalogapi'de windows powerhelli açtýk ve docker exec -it e749d78b8818 bash yazdýk. Bu sayý önceden docker ps
+yazýp sistemde yüklü mü deðil mi diye öðrendikten sonra geldi.
+Ardýndan psql -U postgres yazdýk. So now inside the PostgreSQL shell script we can list available databases.
+\c CatalogDb yazdýk ve databaseimizin içine girdik. \l yazarakta listelenmiþ tabellarý görebiliriz. \c \d
+SELECT * FROM mt_doc_product; yazdýðýmýzda eklenen tabel zýnk
