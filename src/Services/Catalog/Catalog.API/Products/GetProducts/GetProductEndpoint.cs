@@ -22,11 +22,11 @@ namespace Catalog.API.Products.GetProducts
                 return Results.Ok(result);
                 
             })
-                .WithName("CreateProduct")
-                .Produces<CreateProductResponse>(StatusCodes.Status201Created)
+                .WithName("GetProduct")
+                .Produces<GetProductResponse>(StatusCodes.Status200OK)
                 .ProducesProblem(StatusCodes.Status400BadRequest)
-                .WithSummary("Create Product")
-                .WithDescription("Create Product");
+                .WithSummary("Get Product")
+                .WithDescription("Get Products");
 
 
 
