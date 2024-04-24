@@ -7,7 +7,7 @@ namespace Catalog.API.Products.GetProductById
     public record GetProductByIdQuery(Guid Id): IQuery<GetProductByIdResult>;
     public record GetProductByIdResult(Product product);
 
-    internal class GetProductByIdHandler(IDocumentSession session, ILogger<GetProductByIdHandler> logger)
+    internal class GetProductByIdQueryHandler(IDocumentSession session, ILogger<GetProductByIdQueryHandler> logger)
         : IQueryHandler<GetProductByIdQuery, GetProductByIdResult>
     {
         public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
@@ -23,8 +23,6 @@ namespace Catalog.API.Products.GetProductById
             }
 
             return new GetProductByIdResult(product);
-
-
         }
     }
 }
