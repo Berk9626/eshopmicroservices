@@ -16,9 +16,9 @@ namespace Catalog.API.Products.GetProductById
 
                 var result = await sender.Send(new GetProductByIdQuery(id));
                 var response = result.Adapt<GetProductByIdResponse>();
-                return Results.Ok(result);// burası response olduğunda gelmiyordu. Resulta çekince id ile elde ettim
+                return Results.Ok(result);// burası response olduğunda gelmiyordu. Resulta çekince id ile elde ettim......
 
-            })
+            }) 
                 .WithName("GetProductById")
                 .Produces<GetProductByIdResponse>(StatusCodes.Status200OK)
                 .ProducesProblem(StatusCodes.Status400BadRequest)
